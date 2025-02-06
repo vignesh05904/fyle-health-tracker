@@ -10,7 +10,7 @@ https://fyle-health-tracker.usercontent.endcloudhost.com
 
 ## Unit Test Coverage Screenshot
 
-![Health Tracker Unit Coverage Screenshot](assets/screenshots/coverage-report.png)
+![Health Tracker Unit Coverage Screenshot](src/assets/screenshots/coverage-report.png)
 
 ## Requirements
 
