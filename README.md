@@ -1,59 +1,45 @@
-# FyleHealthTracker
+# Fyle Health Tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+This is the **Fyle Health Tracker** project, Unit tests are written for all my 2 component and 1 service and ensured full **100% code coverage**.
 
-## Development server
+## Requirements
 
-To start a local development server, run:
+Before running the project locally, make sure you have the following installed:
 
-```bash
+- **Node.js** (v14 or above)
+- **Angular CLI** (v12 or above)
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/vignesh05904/fyle-health-tracker.git
+   cd fyle-health-tracker
+
+## Install the dependencies:
+
+npm install
+
+
+## Running the Application Locally
+To run the application locally, use the following command:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The application will be available at http://localhost:4200/.
 
-## Code scaffolding
+## Running Unit Tests
+This project includes unit tests for all my 2 component and 1 service, with 100% code coverage.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+To run the tests, use:
 
-```bash
-ng generate component component-name
-```
+ng test --code-coverage
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Code Coverage
+The code coverage report is generated after running the tests. It will show the percentage of code covered by unit tests. The report is available in the coverage/ directory. To view the detailed coverage report, open the index.html file in your browser:
 
-```bash
-ng generate --help
-```
+coverage/index.html
 
-## Building
+The code coverage badge will reflect 100% coverage for the tested component and service.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
