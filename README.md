@@ -8,6 +8,9 @@ This is the **Fyle Health Tracker** project, Unit tests are written for all my 2
 
 https://fyle-health-tracker.usercontent.endcloudhost.com
 
+## Unit Test Coverage Screenshot
+
+![Health Tracker Unit Coverage Screenshot](assets/screenshots/coverage-report.png)
 
 ## Requirements
 
