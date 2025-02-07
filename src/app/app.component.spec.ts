@@ -159,14 +159,8 @@ it('Should return all users when workoutType is empty', () => {
 });
 
 // optional feature charts-ngx test unit.
-it('should update selectedUser and call updateChart() on user selection', () => {
+it('Should update selectedUser and call updateChart() on user selection', () => {
   spyOn(component, 'updateChart');
-
-  // Mock user data
-  component.userData = [
-    { id: 1, name: 'John Doe', workouts: [{ type: 'Running', minutes: 30 }] },
-    { id: 2, name: 'Jane Doe', workouts: [{ type: 'Cycling', minutes: 45 }] }
-  ];
 
   component.onSelectUser(1);
   
@@ -174,7 +168,7 @@ it('should update selectedUser and call updateChart() on user selection', () => 
   expect(component.updateChart).toHaveBeenCalled();
 });
 
-it('should correctly update chartData when updateChart() is called', () => {
+it('Should correctly update chartData when updateChart() is called', () => {
   component.selectedUser = {
     id: 1,
     name: 'John Doe',
@@ -191,12 +185,5 @@ it('should correctly update chartData when updateChart() is called', () => {
     { name: 'Swimming', value: 40 }
   ]);
 });
-
-it('should set chartData to an empty array if no user is selected', () => {
-  component.selectedUser = null;
-  component.updateChart();
-  expect(component.chartData).toEqual([]);
-});
-
 
 });

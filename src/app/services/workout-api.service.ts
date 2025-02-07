@@ -20,7 +20,7 @@ export class WorkoutApiService {
           id: 1,
           name: 'John Doe',
           workouts: [
-            { type: 'Running', minutes: 30 },
+            { type: 'Running', minutes: 60 },
             { type: 'Cycling', minutes: 30 },
           ],
         },
