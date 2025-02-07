@@ -10,6 +10,7 @@ const mockApiService = jasmine.createSpyObj('WorkoutApiService', ['saveWorkoutIn
 class MockAppComponent {
   userData = [{ id: 1, name: 'John Doe', workouts: [{ type: 'Running', minutes: 30 }] }] ;
   updatePagination() {}
+  updateChart() {}
 }
 
 describe('AddWorkoutComponent', () => {

@@ -105,6 +105,7 @@ export class AddWorkoutComponent {
     }
 
     this.parentComponent.updatePagination();
+    this.parentComponent.updateChart();
     this.api.saveWorkoutInfo(this.parentComponent.userData);
   }
 

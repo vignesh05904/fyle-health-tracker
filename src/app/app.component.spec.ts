@@ -5,7 +5,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { AddWorkoutComponent } from './components/add-workout/add-workout.component';
 
-
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -158,5 +157,46 @@ it('Should return all users when workoutType is empty', () => {
   console.log('debug Users:', component.paginatedUsers);
   expect(component.paginatedUsers.length).toBe(component.userData.length);
 });
+
+// optional feature charts-ngx test unit.
+it('should update selectedUser and call updateChart() on user selection', () => {
+  spyOn(component, 'updateChart');
+
+  // Mock user data
+  component.userData = [
+    { id: 1, name: 'John Doe', workouts: [{ type: 'Running', minutes: 30 }] },
+    { id: 2, name: 'Jane Doe', workouts: [{ type: 'Cycling', minutes: 45 }] }
+  ];
+
+  component.onSelectUser(1);
+  
+  expect(component.selectedUser).toEqual(component.userData[0]);
+  expect(component.updateChart).toHaveBeenCalled();
+});
+
+it('should correctly update chartData when updateChart() is called', () => {
+  component.selectedUser = {
+    id: 1,
+    name: 'John Doe',
+    workouts: [
+      { type: 'Running', minutes: 30 },
+      { type: 'Swimming', minutes: 40 }
+    ]
+  };
+
+  component.updateChart();
+
+  expect(component.chartData).toEqual([
+    { name: 'Running', value: 30 },
+    { name: 'Swimming', value: 40 }
+  ]);
+});
+
+it('should set chartData to an empty array if no user is selected', () => {
+  component.selectedUser = null;
+  component.updateChart();
+  expect(component.chartData).toEqual([]);
+});
+
 
 });

@@ -11,6 +11,8 @@ module.exports = {
         'custom-button': 'linear-gradient(#662477,#662477)',
         'custom-purple': ' #7a218b',
         'custom-pink': ' #e73be7',
+        'menu-color': 'linear-gradient(#5c3372, #5c3372)',
+        'menu-color-selected': 'linear-gradient(#5c3372,rgb(101, 51, 128))',
      },
      colors: {
       'custom-pink': 'rgba(132, 17, 143, 0.36)',

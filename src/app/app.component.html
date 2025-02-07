@@ -2,12 +2,12 @@
 <nav class="flex justify-between items-center p-5 bg-gray-300">
   <div class="flex justify-center">
     <img src="https://pbs.twimg.com/profile_images/937963393247461377/caTNUqSb_400x400.jpg" class="h-8 rounded-lg mr-2">
-    <h2 class="text-2xl font-custom text-gray-700"> Health Challenge Tracker </h2>
+    <h2 class="text-2xl font-custom text-gray-700 cursor-default"> Health Challenge Tracker </h2>
   </div>
 
   <div class="flex justify-center">
     <div class="hidden md:flex space-x-6">
-      <a href="#" class="font-light font-normal">{{CurrentDateTime}}</a>
+      <a href="#" class="font-light font-normal cursor-default">{{CurrentDateTime}}</a>
     </div>
   </div>
 </nav> 
@@ -16,7 +16,7 @@
 
 
 <!-- Add Workout Component -->
-<app-add-workout></app-add-workout>   
+<app-add-workout></app-add-workout>
 
 
 
@@ -88,3 +88,56 @@
 
 </div>
 <!-- Pagination Options End -->
+
+
+<!-- Chart Display Start -->
+<div class="hidden md:flex flex-col pb-20 md:flex-row justify-center gap-6 md:gap-10 mt-10 md:mt-20 px-4">
+
+
+  <div class="flex justify-center md:justify-start">
+    <div class="bg-custom-table-header text-white shadow-xl w-52 rounded-lg">
+      <ul class="divide-y divide-pink-700">
+        <li class="font-custom text-lg text-center pt-5 pb-2"> User Workouts  </li>
+        <span *ngFor="let user of userData">
+          <li *ngIf="user.name !== selectedUser?.name"
+          class="px-4 py-3 font-custom bg-menu-color rounded-lg m-2 hover:bg-purple-button-hover transition duration-300 cursor-pointer border-none"
+          (click)="onSelectUser(user.id)">
+          {{ user.name }}
+        </li> 
+        <li *ngIf="user.name === selectedUser?.name"
+        class="px-4 py-3 font-custom bg-menu-color-selected rounded-lg m-2 hover:bg-purple-button-hover transition duration-300 cursor-pointer border-r-4 border-purple-400 shadow-lg shadow-purple-300"
+        (click)="onSelectUser(user.id)">
+        {{ user.name }}
+      </li> 
+       </span>
+      </ul>
+    </div>
+  </div>
+  
+
+  <div class="flex justify-start">
+    <div *ngIf="selectedUser" class="w-full max-w-2xl p-4 bg-custom-table-header rounded-xl shadow-lg text-white">
+      <h3 class="text-xl font-custom text-center mb-6">{{ selectedUser.name }}'s Workout Progress</h3>
+  
+        <ngx-charts-bar-vertical
+          [view]="[650, 350]"
+          [scheme]="colorScheme"
+          [results]="chartData"
+          [gradient]="false"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="true"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          [roundEdges]="true"
+          [animations]="true"
+          [showGridLines]="false"
+          [barPadding]="15"
+          style="fill: #fff;">
+        </ngx-charts-bar-vertical>
+  
+    </div>
+  </div>
+
+</div>
+<!-- Chart Display End -->

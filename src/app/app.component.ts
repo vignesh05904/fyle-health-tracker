@@ -4,6 +4,7 @@ import { User } from './models/interfaces';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ChartOptions } from 'chart.js';
+import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,6 @@ export class AppComponent implements OnInit{
   paginatedUsers: User[] = [];
   pages: number[] = [];
   userData: User[] = [];
- 
 
   ngOnInit() {
     this.updateTime();
@@ -40,6 +40,9 @@ export class AppComponent implements OnInit{
     api.loadUserData(); // loading data from localStorage.
     this.userData = api.getWorkoutInfo() || []; // getting WorkoutData from localStorage.
     this.updatePagination(); // updating the table data with respect to pagination filters.
+
+    this.onSelectUser(1); // Selecting the first user on the userData.
+    this.updateChart(); // Updating the Chart with the selected UserData
   }
 
   updatePagination() {
@@ -86,6 +89,7 @@ export class AppComponent implements OnInit{
     .slice((this.currentPage - 1) * this.itemsPerPage, this.currentPage * this.itemsPerPage);
   }
 
+
   filterByNameType(){
     this.paginatedUsers = this.userData
     .filter(user => {
@@ -108,4 +112,33 @@ export class AppComponent implements OnInit{
   getWorkoutCount(workouts: { type: string; minutes: number }[]): number {
     return workouts.length;
   }
+
+
+  // chart optional feature script
+  // chart feature 
+  selectedUser: any = '';
+  chartData: any[] = [];
+  showLegend = true;
+  
+  onSelectUser(event: any) {
+    const userId = event;
+    this.selectedUser = this.userData.find(user => user.id == userId);
+    this.updateChart();
+  }
+
+  updateChart() {
+    if (this.selectedUser) {
+      this.chartData = this.selectedUser.workouts.map((workout: { type: string; minutes: number }) => ({
+        name: workout.type,
+        value: workout.minutes
+      }));
+    }
+  }
+
+  colorScheme: Color = {
+    name: 'custom',
+    selectable: true,
+    group: ScaleType.Ordinal,
+    domain: ['#733e90', '#733e90', '#733e90'] // Reason for not using tailwind for this on html, ngx-charts module does not support tailwind.
+  };
 }
