@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { WorkoutApiService } from '../../services/workout-api.service';
 import { User } from '../../models/interfaces';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
@@ -17,9 +17,15 @@ export class ChartViewComponent implements OnInit{
   userId: number = 1;
   chartData: any[] = [];
   showLegend = true;
+  chartWidth: number = 650;
   private unsubscribe$ = new Subject<void>(); 
 
   constructor(private service_api: WorkoutApiService){}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.chartResposive(event.target.innerWidth);
+  }
 
   colorScheme: Color = {
     name: 'custom',
@@ -44,6 +50,7 @@ export class ChartViewComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.chartResposive();
     this.service_api.userData$.subscribe(data => {
       this.userData = data;
       this.onSelectUser();
@@ -53,5 +60,17 @@ export class ChartViewComponent implements OnInit{
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  chartResposive(Width?: number){
+    console.log('responssive.')
+    const screenWidth = Width || window.innerWidth;
+    if(screenWidth <= 600){
+      this.chartWidth = 340;
+      this.showLegend = false;
+    } else {
+      this.chartWidth = 650;
+      this.showLegend = true;
+    }
   }
 }

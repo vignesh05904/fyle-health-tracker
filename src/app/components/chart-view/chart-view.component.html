@@ -1,11 +1,11 @@
-<div class="flex flex-col md:flex-row  pb-20 md:flex-row w-full justify-center gap-6 md:gap-10 mt-10 md:px-4">
+<div class="flex flex-col md:flex-row pb-20 md:flex-row w-full justify-center gap-6 md:gap-10 mt-10 md:px-4">
 
     <div class="flex justify-center md:justify-start animate-fade-in">
       <div class="bg-menu-body text-white shadow-xl w-80 rounded-lg">
-        <ul class="divide-y divide-pink-700">
+        <ul class="divide-y divide-pink-700 mb-10 md:">
           <li class="font-custom text-lg text-center pt-3 pb-2 bg-menu-header mb-6 rounded-md"> Workout Profiles </li>
   
-          <div class="max-h-80 overflow-y-auto border-none scrollbar-light">
+          <div class="max-h-60 md:max-h-80 overflow-y-auto border-none scrollbar-light">
           <div *ngFor="let user of userData" class="flex border-none justify-center items-center">
           <li *ngIf="user.name !== selectedUser?.name"
             class="px-4 py-3 font-custom bg-menu-option rounded-lg m-2 hover:bg-purple-button-hover transition duration-300 cursor-pointer border-none w-64"
@@ -24,17 +24,17 @@
     
     
     <div class="flex justify-start">
-      <div *ngIf="selectedUser" class="w-full p-0 bg-chart-layout rounded-xl shadow-lg text-white">
+      <div *ngIf="selectedUser" class="w-full p-0 m-0 md:bg-chart-layout  md:shadow-lg rounded-xl text-white">
         <h3 class="text-xl font-custom text-center mt-4 mb-6">{{ selectedUser.name }}'s Workout Progress</h3>
     
           <ngx-charts-bar-vertical
-            [view]="[650, 350]"
+            [view]="[chartWidth, 350]"
             [scheme]="colorScheme"
             [results]="chartData"
             [gradient]="false"
             [xAxis]="true"
             [yAxis]="true"
-            [legend]="true"
+            [legend]="showLegend"
             [showXAxisLabel]="true"
             [showYAxisLabel]="true"
             [roundEdges]="true"

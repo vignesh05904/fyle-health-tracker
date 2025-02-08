@@ -1,16 +1,24 @@
-<nav class="flex justify-between items-center p-5 bg-gray-300">
-    <div class="flex justify-center">
-      <img src="https://pbs.twimg.com/profile_images/937963393247461377/caTNUqSb_400x400.jpg" class="h-8 rounded-lg mr-2">
-      <h2 class="text-2xl font-custom text-gray-700 cursor-default"> Health Challenge Tracker </h2>
-    </div>
-  
-    <div class="flex justify-center">
-      <div class="hidden md:flex space-x-2">
+<nav class="flex items-center justify-between p-4 bg-gray-200 shadow-md">
+  <!-- Logo & Title -->
+  <div class="flex items-center gap-3">
+    <img src="https://pbs.twimg.com/profile_images/937963393247461377/caTNUqSb_400x400.jpg" class="h-10 rounded-lg">
+    <h2 class="text-xl font-semibold text-gray-700 cursor-default">Health Challenge Tracker</h2>
+  </div>
 
-        <button class="px-4 text-green-900 rounded-md focus:outline-none font-semibold" routerLink="/table-view"> Table View </button>
-  
-        <button class="px-4 text-green-900 rounded-md focus:outline-none font-semibold" routerLink="/chart-view"> Chart View </button>
-  
-      </div>
-    </div>
-  </nav> 
+  <!-- Desktop Menu -->
+  <div class="hidden md:flex gap-4">
+    <button class="px-4 py-2 text-green-900 rounded-md font-semibold hover:bg-green-200 transition" routerLink="/table-view">Table View</button>
+    <button class="px-4 py-2 text-green-900 rounded-md font-semibold hover:bg-green-200 transition" routerLink="/chart-view">Chart View</button>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button (click)="toggleMenu()" class="md:hidden p-2 text-gray-700 rounded-md hover:bg-gray-300">
+    ☰
+  </button>
+
+  <!-- Mobile Dropdown Menu -->
+  <div *ngIf="isMenuOpen" class="absolute top-14 right-5 bg-white shadow-lg rounded-md w-40">
+    <button class="block w-full px-4 py-2 text-green-900 font-semibold hover:bg-green-100 transition" routerLink="/table-view">Table View</button>
+    <button class="block w-full px-4 py-2 text-green-900 font-semibold hover:bg-green-100 transition" routerLink="/chart-view">Chart View</button>
+  </div>
+</nav>
