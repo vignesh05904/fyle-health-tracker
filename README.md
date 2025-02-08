@@ -1,6 +1,6 @@
 # Fyle Health Tracker
 
-This is the **Fyle Health Tracker** project, Unit tests are written for all components and services, ensured full **100% code coverage**.
+This is the **Fyle Health Tracker** project, Unit tests are written for all components and services, ensuring full **100% code coverage**.
 
 ## Live Demo
 
