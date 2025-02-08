@@ -52,6 +52,10 @@ describe('WorkoutApiService', () => {
   });
 
 
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   it('Should be created', () => {
     expect(service).toBeTruthy();
   });

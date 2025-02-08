@@ -58,4 +58,23 @@ describe('ChartViewComponent', () => {
     expect(unsubscribeSpy).toHaveBeenCalled();
     expect(completeSpy).toHaveBeenCalled();
   });
+
+
+  it('Should call chartResposive on window resize', () => {
+    spyOn(component, 'chartResposive');
+
+    // Simulating an window resize event.
+    const fakeEvent = { target: { innerWidth: 1024 } };
+    component.onResize(fakeEvent);
+
+    expect(component.chartResposive).toHaveBeenCalledOnceWith(1024);
+  });
+
+
+  it('Should set chartWdith to 340 to set showLegend to fasle when width is <=600', () => {
+   component.chartResposive(500) // Simulating an screen width of 500
+   expect(component.chartWidth).toBe(340);
+   expect(component.showLegend).toBeFalse();
+  });
+
 });

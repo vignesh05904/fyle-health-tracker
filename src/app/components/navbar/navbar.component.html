@@ -6,8 +6,13 @@
   </div>
 
   <div class="hidden md:flex gap-4">
-    <button class="px-4 py-2 text-purple-900 rounded-md font-semibold transition" routerLink="/table-view">Table View</button>
-    <button class="px-4 py-2 text-purple-900 rounded-md font-semibold transition" routerLink="/chart-view">Chart View</button>
+    <button class="px-4 py-2 bg-purple-button text-white rounded-md hover:bg-purple-500 focus:outline-none hover:bg-purple-button-hover" routerLink="/table-view">
+      Table View
+    </button>
+    <button class="px-4 py-2 bg-purple-button text-white rounded-md hover:bg-purple-500 focus:outline-none hover:bg-purple-button-hover" routerLink="/chart-view">
+      Chart View
+    </button>
+    
   </div>
 
   <button (click)="toggleMenu()" class="md:hidden p-2 text-gray-700 rounded-md hover:bg-gray-300"> ☰ </button>
@@ -17,4 +22,3 @@
     <button class="block w-full px-4 py-2 text-purple-900 font-semibold transition" routerLink="/chart-view">Chart View</button>
   </div>
 </nav>
-

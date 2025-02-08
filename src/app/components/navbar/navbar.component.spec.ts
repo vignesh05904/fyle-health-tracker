@@ -17,7 +17,16 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Should toggle isMenuOpen', () => {
+    component.toggleMenu();
+    expect(component.isMenuOpen).toBeTrue();
+
+    component.toggleMenu();
+    expect(component.isMenuOpen).toBeFalse();
+  });
+
 });
