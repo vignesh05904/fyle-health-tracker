@@ -1,6 +1,6 @@
 # Fyle Health Tracker
 
-This is the **Fyle Health Tracker** project, Unit tests are written for all my 2 component and 1 service and ensured full **100% code coverage**.
+This is the **Fyle Health Tracker** project, Unit tests are written for all components and services, ensured full **100% code coverage**.
 
 ## Live Demo
 
@@ -40,7 +40,7 @@ ng serve
 The application will be available at http://localhost:4200/.
 
 ## Running Unit Tests
-This project includes unit tests for all my 2 component and 1 service, with 100% code coverage.
+This project includes unit tests for all components and services, with 100% code coverage.
 
 To run the tests, use:
 
