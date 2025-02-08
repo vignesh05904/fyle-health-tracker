@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'table-header': 'linear-gradient(rgb(75, 26, 87),rgb(75, 26, 87))',
+        'table-header': 'linear-gradient(rgb(71, 32, 78),rgb(71, 32, 78))',
         'table-body': 'linear-gradient(rgb(90, 48, 100, 0.8), rgb(90, 48, 100))',
 
         'menu-header': 'linear-gradient(rgb(83, 27, 97),rgb(83, 27, 97))',
@@ -17,7 +17,7 @@ module.exports = {
         'menu-option': 'linear-gradient(#5c3372,#5c3372)',
         'menu-option-selected': 'linear-gradient(#5c3372,#653380)',
          
-        'chart-layout': 'linear-gradient(rgb(76, 38, 97),rgb(92, 51, 114, 0.6))',
+        'chart-layout': 'linear-gradient(rgb(85, 30, 99),rgb(83, 27, 97, 0.6))',
      },
      colors: {
       'purple-layout': 'rgba(132, 17, 143, 0.36)',
