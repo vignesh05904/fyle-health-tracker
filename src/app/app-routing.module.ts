@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddWorkoutComponent } from './components/add-workout/add-workout.component';
 import { TableViewComponent } from './components/table-view/table-view.component';
 import { ChartViewComponent } from './components/chart-view/chart-view.component';
 
