@@ -186,4 +186,20 @@ it('Should correctly update chartData when updateChart() is called', () => {
   ]);
 });
 
+it('Should toggle displayChart and store value in localStorage', () => {
+  spyOn(localStorage, 'setItem');
+
+  component.displayChart = false;
+  component.toggleChart();
+  expect(component.displayChart).toBeTrue();
+  expect(localStorage.setItem).toHaveBeenCalledWith('displayChart', 'true');
+
+  // Toggle again to get false.
+  component.toggleChart();
+  expect(component.displayChart).toBeFalse();
+  expect(localStorage.setItem).toHaveBeenCalledWith('displayChart', 'false');
 });
+
+
+});
+
