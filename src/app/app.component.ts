@@ -24,8 +24,13 @@ export class AppComponent implements OnInit{
   paginatedUsers: User[] = [];
   pages: number[] = [];
   userData: User[] = [];
-  displayChart = false;
-  
+  displayChart: boolean = JSON.parse(localStorage.getItem('displayChart') || 'false');
+
+  toggleChart(){
+    this.displayChart = !this.displayChart;
+    localStorage.setItem('displayChart', JSON.stringify(this.displayChart));
+  }
+
   ngOnInit() {
     this.updateTime();
     setInterval(() => {
@@ -37,6 +42,7 @@ export class AppComponent implements OnInit{
     this.CurrentDateTime = new Date().toLocaleString();
   }
 
+  view: any;
   constructor(private api:WorkoutApiService) {
     api.loadUserData(); // loading data from localStorage.
     this.userData = api.getWorkoutInfo() || []; // getting WorkoutData from localStorage.
@@ -44,6 +50,8 @@ export class AppComponent implements OnInit{
 
     this.onSelectUser(1); // Selecting the first user on the userData.
     this.updateChart(); // Updating the Chart with the selected UserData
+
+    this.view = [innerWidth / 1.3, 400];
   }
 
   updatePagination() {
@@ -140,6 +148,8 @@ export class AppComponent implements OnInit{
     name: 'custom',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#733e90', '#733e90', '#733e90'] // Reason for not using tailwind for this on html, ngx-charts module does not support tailwind.
+    domain: ['#733e90', '#753797', '#733e90'] // Reason for not using tailwind for this on html, ngx-charts module does not support tailwind.
   };
+  
+
 }
