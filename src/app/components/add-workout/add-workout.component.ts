@@ -26,10 +26,10 @@ export class AddWorkoutComponent {
         icon: 'error',
         title: 'Hold on!',
         text: 'Looks like some fields are missing. Complete them to proceed.',
-        background: '#2D1B4A',
+        background: 'rgb(67, 27, 77)',
         color: '#E1CFF8',
-        iconColor: '#D63384',
-        confirmButtonColor: '#8A2BE2',
+        iconColor: 'rgb(117, 14, 103)',
+        confirmButtonColor: '#5c3372',
         confirmButtonText: 'OK',
         customClass: {
           popup: 'custom-swal-popup',
@@ -46,10 +46,10 @@ export class AddWorkoutComponent {
         icon: 'error',
         title: 'Invalid Username!',
         text: 'Username must be at least 3 characters long and contain only letters and numbers.',
-        background: '#2D1B4A',
+        background: 'rgb(67, 27, 77)',
         color: '#E1CFF8',
-        iconColor: '#D63384',
-        confirmButtonColor: '#8A2BE2',
+        iconColor: 'rgb(117, 14, 103)',
+        confirmButtonColor: '#5c3372',
         confirmButtonText: 'OK',
       });
       return;
@@ -61,10 +61,10 @@ export class AddWorkoutComponent {
         icon: 'error',
         title: 'Invalid Workout Minutes!',
         text: 'Workout minutes must be a valid number greater than 0, without leading zeros.',
-        background: '#2D1B4A',
+        background: 'rgb(67, 27, 77)',
         color: '#E1CFF8',
-        iconColor: '#D63384',
-        confirmButtonColor: '#8A2BE2',
+        iconColor: 'rgb(117, 14, 103)',
+        confirmButtonColor: '#5c3372',
        confirmButtonText: 'OK',
       });
       return;

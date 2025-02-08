@@ -47,7 +47,7 @@ export class WorkoutApiService {
           ],
         },
       ];
-      this.saveWorkoutInfo(userData);
+      this.saveWorkoutInfo(userData, true);
     }
 
     this.userDataSubject.next(userData);
@@ -66,15 +66,15 @@ export class WorkoutApiService {
 
   saveWorkoutInfo(workoutData: User[],alert?: boolean){
     localStorage.setItem("workoutData", JSON.stringify(workoutData));
-    if(alert){
+    if(!alert){
     Swal.fire({
       icon: 'success',
       title: 'Great job!',
       text: 'Your workout has been added successfully. Keep pushing forward!',
-      background: '#2D1B4A',
+      background: 'rgb(67, 27, 77)',
       color: '#E1CFF8',
-      iconColor: '#8A2BE2',
-      confirmButtonColor: '#8A2BE2',
+      iconColor: 'rgb(84, 131, 72)',
+      confirmButtonColor: ' #5c3372',
       confirmButtonText: 'Awesome!',
       timer: 6000,
       showConfirmButton: true
