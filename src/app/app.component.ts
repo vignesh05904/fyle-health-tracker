@@ -24,7 +24,8 @@ export class AppComponent implements OnInit{
   paginatedUsers: User[] = [];
   pages: number[] = [];
   userData: User[] = [];
-
+  displayChart = false;
+  
   ngOnInit() {
     this.updateTime();
     setInterval(() => {

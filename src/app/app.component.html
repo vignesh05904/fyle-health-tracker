@@ -7,6 +7,7 @@
 
   <div class="flex justify-center">
     <div class="hidden md:flex space-x-6">
+      <button (click)="displayChart = !displayChart" class="px-4 text-green-900 rounded-md focus:outline-none font-semibold"> {{ displayChart ? 'Hide Optional Feature' : 'Show Optional Feature' }} </button>
       <a href="#" class="font-light font-normal cursor-default">{{CurrentDateTime}}</a>
     </div>
   </div>
@@ -19,9 +20,8 @@
 <app-add-workout></app-add-workout>
 
 
-
 <!-- Workout Table Display Start -->
-<div class="grid grid-cols-1 px-5 md:px-20">
+<div class="grid grid-cols-1 px-5 md:px-20" *ngIf="!displayChart">
   <div class="flex flex-col md:flex-row justify-between pb-5 gap-3">
     <input [(ngModel)]="searchName" (input)="filterByNameType()" class="w-full md:w-1/3 px-4 py-2 rounded-lg bg-custom-table-body text-white placeholder-white focus:outline-none" placeholder="Search by name"/>
 
@@ -62,7 +62,7 @@
 
 
 <!-- Pagination Options Start -->
-<div class="flex gap-5 flex-row md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-2 p-4">
+<div class="flex gap-5 flex-row md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-2 p-4" *ngIf="!displayChart">
 
   <button class="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 disabled:opacity-50" [disabled]="currentPage === 1" (click)="goToPreviousPage()">Previous</button>
 
@@ -89,9 +89,12 @@
 </div>
 <!-- Pagination Options End -->
 
-
 <!-- Chart Display Start -->
-<div class="hidden md:flex flex-col pb-20 md:flex-row w-full justify-center gap-6 md:gap-10 mt-10 md:mt-20 px-4">
+ <div class="flex md:hidden justify-center font-custom text-white"> 
+  Chart Unsupported for Android devices.. ! <!-- charts-ngx module is not responsive for mobile devices, so just displaying and unsupported message. -->
+ </div>
+
+<div class="hidden md:flex flex-col pb-20 md:flex-row w-full justify-center gap-6 md:gap-10 mt-10 md:mt-20 px-4" *ngIf="displayChart">
 
   <div class="flex justify-center md:justify-start">
     <div class="bg-custom-table-header text-white shadow-xl w-64 rounded-lg p-2">
@@ -113,7 +116,7 @@
     </div>
   </div>
   
-
+  
   <div class="flex justify-start">
     <div *ngIf="selectedUser" class="w-full  p-4 bg-custom-table-header rounded-xl shadow-lg text-white">
       <h3 class="text-xl font-custom text-center mt-4 mb-6">{{ selectedUser.name }}'s Workout Progress</h3>
