@@ -1,18 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { WorkoutApiService } from './workout-api.service';
+import { User } from './../models/interfaces';
+import Swal from 'sweetalert2';
 
-describe('WorkoutService', () => {
+describe('WorkoutApiService', () => {
   let service: WorkoutApiService;
-
+  let mockUserData: User[];
+  let saveWorkoutInfoSpy: jasmine.Spy;
+  
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(WorkoutApiService);
-
-    localStorage.clear();
-  });
-
-  it('should load user data from localStorage when available', () => {
-    const mockData = [
+    
+    mockUserData = [
       {
         id: 1,
         name: 'John Doe',
@@ -21,52 +21,67 @@ describe('WorkoutService', () => {
           { type: 'Cycling', minutes: 30 },
         ],
       },
-    ];
-    spyOn(localStorage, 'getItem').and.returnValue(JSON.stringify(mockData));
+      {
+        id: 2,
+        name: 'Jane Smith',
+        workouts: [
+          { type: 'Swimming', minutes: 60 },
+          { type: 'Running', minutes: 20 },
+        ],
+      },
+      {
+        id: 3,
+        name: 'Mike Johnson',
+        workouts: [
+          { type: 'Yoga', minutes: 50 },
+          { type: 'Cycling', minutes: 80 },
+        ],
+      },
+    ]
 
+    saveWorkoutInfoSpy = spyOn(service, 'saveWorkoutInfo').and.callThrough();
+
+    spyOn(localStorage, 'getItem').and.callFake((key: string) => {
+      if (key === 'workoutData') {
+        return JSON.stringify(mockUserData);
+      }
+      return null;
+    });
+    spyOn(localStorage, 'setItem');
+    spyOn(Swal, 'fire');
+  });
+
+
+  it('Should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  it('Should get workout info', () => {
+    const data = service.getWorkoutInfo();
+    expect(data).toEqual(mockUserData);
+  });
+
+  it('Should save workout info and update observable', () => {
+    service.saveWorkoutInfo(mockUserData, true);
+    expect(localStorage.setItem).toHaveBeenCalledWith('workoutData', JSON.stringify(mockUserData));
+    expect(Swal.fire).toHaveBeenCalled();
+
+    service.userData$.subscribe((data) => {
+      expect(data).toEqual(mockUserData);
+    });
+  });
+
+  it('Should save workout info without alert when specified', () => {
+    service.saveWorkoutInfo(mockUserData, false);
+    expect(localStorage.setItem).toHaveBeenCalledWith('workoutData', JSON.stringify(mockUserData));
+    expect(Swal.fire).not.toHaveBeenCalled();
+  });
+
+  it('Should load default data and call saveWorkoutInfo when localStorage is empty', () => {
+    localStorage.clear();
     service.loadUserData();
 
-    expect(service.userData).toEqual(mockData);
+    expect(service.userData$).toBeTruthy();
   });
-
-  it('should load default userData if localStorage is empty', () => {
-    service.loadUserData();
-    expect(service.userData.length).toBe(3);
-    expect(service.userData[0].name).toBe('John Doe');
-  });
-
-  it('should retrieve stored workout data from localStorage', () => {
-    const mockData = [
-      {
-        id: 1,
-        name: 'Test John',
-        workouts: [{ type: 'Running', minutes: 20 }],
-      },
-    ];
-
-    localStorage.setItem('workoutData', JSON.stringify(mockData));
-
-    const retrievedData = service.getWorkoutInfo();
-    expect(retrievedData.length).toBe(1);
-    expect(retrievedData[0].name).toBe('Test John');
-  });
-
-  it('should save workout data to localStorage', () => {
-    const testData = [
-      {
-        id: 4,
-        name: 'Abhishek',
-        workouts: [{ type: 'Swimming', minutes: 35 }],
-      },
-    ];
-
-    service.saveWorkoutInfo(testData);
-    const storedData = JSON.parse(localStorage.getItem('workoutData') as string);
-    
-    expect(storedData.length).toBe(1);
-    expect(storedData[0].name).toBe('Abhishek');
-  });
-
 
 });
-

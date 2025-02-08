@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { WorkoutApiService } from '../../services/workout-api.service';
 import { AppComponent } from '../../app.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-add-workout',
@@ -12,13 +13,13 @@ import { AppComponent } from '../../app.component';
 })
 
 export class AddWorkoutComponent {
-
   addWorkout: string = 'Running';
 
-  constructor(private api: WorkoutApiService, @Inject(AppComponent) public parentComponent: AppComponent ){}
+  constructor(private service_api: WorkoutApiService){}
 
   add_workout(WorkoutForm: NgForm){
     const data = WorkoutForm.value;
+    const UserData = this.service_api.getWorkoutInfo();
 
     if (!data.username || !data.WorkoutType || data.workoutMinutes === null) {
       Swal.fire({
@@ -75,7 +76,7 @@ export class AddWorkoutComponent {
 
 
     // Checking if user aldready exists
-    let existingUser = this.parentComponent.userData.find(user => user.name.toLowerCase() === data.username.toLowerCase());
+    let existingUser = UserData.find(user => user.name.toLowerCase() === data.username.toLowerCase());
 
     if (existingUser) {
       // Check if the same workout type exists for this user
@@ -95,18 +96,16 @@ export class AddWorkoutComponent {
     } else {
       // If user does not exist, add a new user with their first workout
       const newUser = {
-        id: this.parentComponent.userData.length + 1,
+        id: UserData.length + 1,
         name: data.username,
         workouts: [
           { type: data.WorkoutType, minutes: data.workoutMinutes }
         ]
       };
-      this.parentComponent.userData.push(newUser);
+      UserData.push(newUser);
     }
 
-    this.parentComponent.updatePagination();
-    this.parentComponent.updateChart();
-    this.api.saveWorkoutInfo(this.parentComponent.userData);
+    this.service_api.saveWorkoutInfo(UserData);
   }
 
 }

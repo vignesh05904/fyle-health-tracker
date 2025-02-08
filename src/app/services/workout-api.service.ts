@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
 import { User } from './../models/interfaces';
 import Swal from 'sweetalert2';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WorkoutApiService {
-  userData: User[] = []
-
-  constructor() { }
+  private userDataSubject = new BehaviorSubject<User[]>([]);
+  userData$ = this.userDataSubject.asObservable(); // Expose as observable
+  
+  constructor() {
+    this.loadUserData();
+  }
 
   loadUserData() {
     const storedData = localStorage.getItem('workoutData');
+    let userData: User[];
+
     if (storedData) {
-      this.userData = JSON.parse(storedData);
+      userData = JSON.parse(storedData);
     } else {
-      this.userData = [
+      userData = [
         {
           id: 1,
           name: 'John Doe',
           workouts: [
-            { type: 'Running', minutes: 60 },
+            { type: 'Running', minutes: 30 },
             { type: 'Cycling', minutes: 30 },
           ],
         },
@@ -41,19 +47,24 @@ export class WorkoutApiService {
           ],
         },
       ];
-      this.saveWorkoutInfo(this.userData,false);
+      this.saveWorkoutInfo(userData);
     }
-    return;
+
+    this.userDataSubject.next(userData);
   }
 
-  getWorkoutInfo(){
-    const storedData = localStorage.getItem('workoutData') as string;
-    this.userData = JSON.parse(storedData);
 
-    return this.userData;
+  getWorkoutInfo(){
+    let userData: User[];
+
+    const storedData = localStorage.getItem('workoutData') as string;
+    userData = JSON.parse(storedData);
+
+    return userData;
   };
 
-  saveWorkoutInfo(workoutData: User[],alert: boolean = true){
+
+  saveWorkoutInfo(workoutData: User[],alert?: boolean){
     localStorage.setItem("workoutData", JSON.stringify(workoutData));
     if(alert){
     Swal.fire({
@@ -68,7 +79,8 @@ export class WorkoutApiService {
       timer: 6000,
       showConfirmButton: true
     }); 
-   }
+    }
+   this.userDataSubject.next(workoutData);
   }
-
+  
 }

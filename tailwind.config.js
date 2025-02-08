@@ -8,9 +8,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-    //    'table-header': 'linear-gradient(rgb(85, 30, 114),rgb(83, 34, 109))',
-    //    'table-body': 'linear-gradient(#5c3372, #5c3372)',
-        
         'table-header': 'linear-gradient(rgb(75, 26, 87),rgb(75, 26, 87))',
         'table-body': 'linear-gradient(rgb(90, 48, 100, 0.8), rgb(90, 48, 100))',
 
