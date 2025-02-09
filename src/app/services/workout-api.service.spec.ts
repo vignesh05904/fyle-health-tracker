@@ -18,7 +18,8 @@ describe('WorkoutApiService', () => {
         name: 'John Doe',
         workouts: [
           { type: 'Running', minutes: 30 },
-          { type: 'Cycling', minutes: 30 },
+          { type: 'Cycling', minutes: 60 },
+          { type: 'Swimming', minutes: 45 },
         ],
       },
       {
@@ -33,7 +34,7 @@ describe('WorkoutApiService', () => {
         id: 3,
         name: 'Mike Johnson',
         workouts: [
-          { type: 'Yoga', minutes: 50 },
+          { type: 'Running', minutes: 50 },
           { type: 'Cycling', minutes: 80 },
         ],
       },
@@ -66,7 +67,7 @@ describe('WorkoutApiService', () => {
   });
 
   it('Should save workout info and update observable', () => {
-    service.saveWorkoutInfo(mockUserData, true);
+    service.saveWorkoutInfo(mockUserData, false);
     expect(localStorage.setItem).toHaveBeenCalledWith('workoutData', JSON.stringify(mockUserData));
     expect(Swal.fire).toHaveBeenCalled();
 
@@ -76,7 +77,7 @@ describe('WorkoutApiService', () => {
   });
 
   it('Should save workout info without alert when specified', () => {
-    service.saveWorkoutInfo(mockUserData, false);
+    service.saveWorkoutInfo(mockUserData, true);
     expect(localStorage.setItem).toHaveBeenCalledWith('workoutData', JSON.stringify(mockUserData));
     expect(Swal.fire).not.toHaveBeenCalled();
   });

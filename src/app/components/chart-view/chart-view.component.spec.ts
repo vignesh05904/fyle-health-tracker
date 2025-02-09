@@ -4,6 +4,7 @@ import { WorkoutApiService } from '../../services/workout-api.service';
 import { of } from 'rxjs';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FormsModule } from '@angular/forms';
 
 describe('ChartViewComponent', () => {
   let component: ChartViewComponent;
@@ -17,14 +18,14 @@ describe('ChartViewComponent', () => {
 
   beforeEach(async () => {
     mockWorkoutApiService = jasmine.createSpyObj('WorkoutApiService', ['userData$']);
-    mockWorkoutApiService.userData$ = of(mockUserData); // Mock observable data
+    mockWorkoutApiService.userData$ = of(mockUserData);
 
     await TestBed.configureTestingModule({
       declarations: [ChartViewComponent],
-      imports: [NgxChartsModule],  // ✅ Import NgxChartsModule for chart support
+      imports: [NgxChartsModule, FormsModule],
       providers: [
         { provide: WorkoutApiService, useValue: mockWorkoutApiService },
-        provideNoopAnimations()  // ✅ Disable animations in tests to fix NG05105 error
+        provideNoopAnimations()
       ]
     }).compileComponents();
 
@@ -72,9 +73,14 @@ describe('ChartViewComponent', () => {
 
 
   it('Should set chartWdith to 340 to set showLegend to fasle when width is <=600', () => {
-   component.chartResposive(500) // Simulating an screen width of 500
-   expect(component.chartWidth).toBe(340);
-   expect(component.showLegend).toBeFalse();
-  });
+    component.chartResposive(500) // Simulating an screen width of 500
+    expect(component.chartWidth).toBe(340);
+    expect(component.showLegend).toBeFalse();
+   });
+
+   it('Should changeChartType When an chart type of vertical or horizontal is selected from select options.', () => {
+    component.changeChartType('horizontal')
+    expect(component.chartType).toBe('horizontal');
+   });
 
 });

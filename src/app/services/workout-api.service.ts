@@ -27,7 +27,8 @@ export class WorkoutApiService {
           name: 'John Doe',
           workouts: [
             { type: 'Running', minutes: 30 },
-            { type: 'Cycling', minutes: 30 },
+            { type: 'Cycling', minutes: 60 },
+            { type: 'Swimming', minutes: 45 },
           ],
         },
         {
@@ -42,7 +43,7 @@ export class WorkoutApiService {
           id: 3,
           name: 'Mike Johnson',
           workouts: [
-            { type: 'Yoga', minutes: 50 },
+            { type: 'Running', minutes: 50 },
             { type: 'Cycling', minutes: 80 },
           ],
         },

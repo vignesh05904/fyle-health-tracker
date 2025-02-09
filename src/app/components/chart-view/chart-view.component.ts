@@ -12,12 +12,15 @@ import { Subject } from 'rxjs';
   styleUrl: './chart-view.component.scss'
 })
 export class ChartViewComponent implements OnInit{
+  chartType: string = 'chart-bar-vertical';
   userData: User[] = [];
   selectedUser: any = '';
   userId: number = 1;
   chartData: any[] = [];
   showLegend = true;
   chartWidth: number = 650;
+  searchName: string = '';
+  FilterByName: User[] = [];
   private unsubscribe$ = new Subject<void>(); 
 
   constructor(private service_api: WorkoutApiService){}
@@ -31,7 +34,7 @@ export class ChartViewComponent implements OnInit{
     name: 'custom',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#733e90', '#753797', '#733e90']
+    domain: ['#5f1f81', '#612880', '#642a83']
   };
 
   onSelectUser(event?: any) {
@@ -53,6 +56,7 @@ export class ChartViewComponent implements OnInit{
     this.chartResposive();
     this.service_api.userData$.subscribe(data => {
       this.userData = data;
+      this.filterByName();
       this.onSelectUser();
     });
   }
@@ -72,5 +76,19 @@ export class ChartViewComponent implements OnInit{
       this.chartWidth = 650;
       this.showLegend = true;
     }
+  }
+  
+  changeChartType(chart_type: string){
+    this.chartType = chart_type;
+  }
+
+  filterByName(){
+    const filterData = this.userData.filter(user =>
+      user.name.toLowerCase().includes(this.searchName.toLowerCase())
+    );
+
+    this.FilterByName = filterData;
+
+    console.log(this.FilterByName);
   }
 }
