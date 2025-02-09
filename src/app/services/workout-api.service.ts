@@ -36,12 +36,21 @@ export class WorkoutApiService {
           name: 'Jane Smith',
           workouts: [
             { type: 'Swimming', minutes: 60 },
+            { type: 'Cycling', minutes: 40 },
             { type: 'Running', minutes: 20 },
           ],
         },
         {
           id: 3,
           name: 'Mike Johnson',
+          workouts: [
+            { type: 'Running', minutes: 50 },
+            { type: 'Swimming', minutes: 80 },
+          ],
+        },
+        {
+          id: 4,
+          name: 'Joseph',
           workouts: [
             { type: 'Running', minutes: 50 },
             { type: 'Cycling', minutes: 80 },

@@ -21,6 +21,12 @@
           </tr>
         </thead>
         <tbody class="bg-table-body">
+          <tr *ngIf="paginatedUsers.length == 0">
+            <td colspan="4" class="px-6 py-4 font-light text-center">
+              No such workouts found
+            </td>
+          </tr>
+
           <tr *ngFor="let user of paginatedUsers" class="border-none">
             <td class="px-6 py-4">{{ user.name }}</td>
             <td class="px-6 py-4">

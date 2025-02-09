@@ -8,17 +8,17 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        'navbar-layout': 'linear-gradient(rgb(74, 29, 85,0.8),rgb(74, 29, 85))',
+
         'table-header': 'linear-gradient(rgb(74, 29, 85,0.8),rgb(74, 29, 85))',
         'table-body': 'linear-gradient(rgb(90, 48, 100, 0.8), rgb(90, 48, 100))',
 
         'menu-header': 'linear-gradient(rgb(83, 27, 97),rgb(83, 27, 97))',
-        // 'menu-body': 'linear-gradient(rgb(102, 36, 119, 0.8),rgb(83, 27, 97, 0.6))',
         'menu-body': 'linear-gradient(rgb(102, 36, 119, 0.8),rgb(83, 27, 97, 0.7))',
         
         'menu-option': 'linear-gradient(#5c3372,#5c3372)',
         'menu-option-selected': 'linear-gradient(#5c3372,#653380)',
          
-       // 'chart-layout': 'linear-gradient(rgb(85, 30, 99),rgb(83, 27, 97, 0.6))',
        'chart-layout': 'linear-gradient(rgb(85, 30, 99),rgb(83, 27, 97, 0.6))',
      },
      colors: {
