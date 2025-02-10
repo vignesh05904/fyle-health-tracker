@@ -6,11 +6,11 @@ This is the **Fyle Health Tracker** project, Unit tests are written for all comp
 
 [**Fyle Health Tracker**](https://fyle-health-tracker-v2.usercontent.endcloudhost.com/)
 
-- Purple Theme
+- Purple Theme Basic Dark Ambience
 
 https://fyle-health-tracker.usercontent.endcloudhost.com
 
-- White Theme
+- White Theme Proffessional
 
 https://fyle-health-tracker-v2.usercontent.endcloudhost.com
 
