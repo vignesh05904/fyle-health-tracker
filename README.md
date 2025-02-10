@@ -4,9 +4,12 @@ This is the **Fyle Health Tracker** project, Unit tests are written for all comp
 
 ## Live Demo
 
-[**Fyle Health Tracker Live**](https://fyle-health-tracker.usercontent.endcloudhost.com/)
-
+[**Fyle Health Tracker Purple Theme**](https://fyle-health-tracker.usercontent.endcloudhost.com/)
+Purple Theme
 https://fyle-health-tracker.usercontent.endcloudhost.com
+
+White Theme
+https://fyle-health-tracker-v2.usercontent.endcloudhost.com
 
 ## Code Coverage Report Screenshot
 
