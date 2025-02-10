@@ -8,7 +8,7 @@ This is the **Fyle Health Tracker** project, Unit tests are written for all comp
 
 - Purple Dark Theme Basic
 
-https://fyle-health-tracker.usercontent.endcloudhost.com
+https://fyle-health-tracker-v1.usercontent.endcloudhost.com
 
 - White Theme Proffessional
 
