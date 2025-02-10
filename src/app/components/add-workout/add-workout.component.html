@@ -1,6 +1,6 @@
-<div class="flex flex-col p-8 gap-8 items-center m-4 sm:m-10">
+<div class="flex flex-col p-4 md:p-8 gap-8 items-center m-4 sm:m-10">
   
-    <form class="flex flex-col p-6 gap-6 items-center bg-purple-layout rounded-lg w-full max-w-lg" #WorkoutForm="ngForm" (ngSubmit)="add_workout(WorkoutForm)">
+    <form class="flex flex-col p-6 gap-6 items-center bg-purple-layout rounded-lg shadow-sm w-full max-w-lg" #WorkoutForm="ngForm" (ngSubmit)="add_workout(WorkoutForm)">
    
       <h2 class="text-2xl font-custom text-white"> Create Workout </h2>
       <input name="username" class="w-full px-6 py-3 rounded-lg bg-primary-light text-white placeholder-gray-300 focus:outline-none" placeholder="Enter Username" ngModel required/>
@@ -9,6 +9,7 @@
         name="WorkoutType" [(ngModel)]="addWorkout" id="addWorkout" class="w-full px-6 py-3 rounded-lg bg-primary-light text-white placeholder-gray-300 focus:outline-none" ngModel required>
         <option value="Running">Running</option>
         <option value="Swimming">Swimming</option>
+        <option value="Yoga">Yoga</option>
         <option value="Cycling">Cycling</option>
       </select>
    

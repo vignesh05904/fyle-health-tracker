@@ -45,7 +45,7 @@ export class WorkoutApiService {
           name: 'Mike Johnson',
           workouts: [
             { type: 'Running', minutes: 50 },
-            { type: 'Swimming', minutes: 80 },
+            { type: 'Yoga', minutes: 80 },
           ],
         },
         {

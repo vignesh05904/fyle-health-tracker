@@ -1,24 +1,12 @@
 
-<nav class="flex items-center justify-between p-4 bg-navbar-layout shadow-md">
+<nav class="flex items-center justify-between p-5 bg-navbar-layout shadow-lg">
   <div class="flex items-center gap-3">
     <img src="https://pbs.twimg.com/profile_images/937963393247461377/caTNUqSb_400x400.jpg" class="h-10 rounded-lg">
-    <h2 class="text-2xl font-custom text-gray-200 cursor-default">Health Challenge Tracker</h2>
+    <h2 class="text-2xl font-quicksand IN text-white cursor-default">Fyle Health Tracker</h2>
   </div>
 
   <div class="hidden md:flex gap-4">
-    <button class="px-4 py-2 bg-purple-button text-white rounded-md hover:bg-purple-500 focus:outline-none hover:bg-purple-button-hover" routerLink="/table-view">
-      Table View
-    </button>
-    <button class="px-4 py-2 bg-purple-button text-white rounded-md hover:bg-purple-500 focus:outline-none hover:bg-purple-button-hover" routerLink="/chart-view">
-      Chart View
-    </button>
-    
+    <span class="font-light"> {{DateTimeStamp}} </span>
   </div>
 
-  <button (click)="toggleMenu()" class="md:hidden p-2 text-white"> ☰ </button>
-
-  <div *ngIf="isMenuOpen" class="absolute top-14 right-5 bg-primary-light shadow-lg rounded-md w-40">
-    <button class="block w-full px-4 py-2 text-white font-semibold transition" routerLink="/table-view">Table View</button>
-    <button class="block w-full px-4 py-2 text-white font-semibold transition" routerLink="/chart-view">Chart View</button>
-  </div>
 </nav>

@@ -17,7 +17,7 @@ https://fyle-health-tracker.usercontent.endcloudhost.com
 Before running the project locally, make sure you have the following installed:
 
 - **Node.js** (v14 or above)
-- **Angular CLI** (v12 or above)
+- **Angular CLI** (v14 or above)
 
 ## Installation
 

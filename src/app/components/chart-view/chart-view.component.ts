@@ -18,7 +18,8 @@ export class ChartViewComponent implements OnInit{
   userId: number = 1;
   chartData: any[] = [];
   showLegend = true;
-  chartWidth: number = 650;
+  chartWidth: number = 0;
+  chartHeight: number = 0;
   searchName: string = '';
   FilterByName: User[] = [];
   private unsubscribe$ = new Subject<void>(); 
@@ -71,9 +72,11 @@ export class ChartViewComponent implements OnInit{
     const screenWidth = Width || window.innerWidth;
     if(screenWidth <= 600){
       this.chartWidth = 340;
+      this.chartHeight = 320;
       this.showLegend = false;
     } else {
-      this.chartWidth = 650;
+      this.chartWidth = 750;
+      this.chartHeight = 450;
       this.showLegend = true;
     }
   }
@@ -88,7 +91,5 @@ export class ChartViewComponent implements OnInit{
     );
 
     this.FilterByName = filterData;
-
-    console.log(this.FilterByName);
   }
 }
