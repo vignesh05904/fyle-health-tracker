@@ -35,7 +35,7 @@ export class ChartViewComponent implements OnInit{
     name: 'custom',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#5f1f81', '#612880', '#642a83']
+    domain: ['rgb(194, 114, 134)', 'rgb(184, 75, 102)', 'rgb(221, 94, 125)']
   };
 
   onSelectUser(event?: any) {
@@ -68,7 +68,6 @@ export class ChartViewComponent implements OnInit{
   }
 
   chartResposive(Width?: number){
-    console.log('responssive.')
     const screenWidth = Width || window.innerWidth;
     if(screenWidth <= 600){
       this.chartWidth = 340;

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body { height: 100%; }
-body { margin: 0; background: #202020; }
+body { margin: 0; background: linear-gradient(to right,#f2f7fc,#ddecfa); background: linear-gradient(to left,#e4ecf3,#f5f3f4); }
 
 @font-face {
     font-family: 'LouisGeorge';

@@ -8,28 +8,37 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'navbar-layout': 'linear-gradient(rgb(74, 41, 83),rgb(74, 29, 85))',
+        'navbar-layout': 'linear-gradient(#fff,#fff)',
 
-        'table-header': 'linear-gradient(to bottom, rgb(74, 29, 85,0.8),rgb(74, 29, 85))',
-        'table-body': 'linear-gradient(rgb(90, 48, 100), rgb(90, 48, 100))',
+        'table-header': 'linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255))',
+        'table-body': 'linear-gradient( rgb(236, 236, 236), rgb(236, 236, 236))',
 
-        'menu-header': 'linear-gradient( rgb(102, 35, 119),rgb(74, 26, 87))',
-        'menu-body': 'linear-gradient(rgb(88, 33, 102),rgb(83, 27, 97, 0.7))',
         
-        'menu-option': 'linear-gradient( #5c3372,#5c3372)',
-        'menu-option-selected': 'linear-gradient(#5c3372,#653380)',
-         
-        'chart-layout': 'linear-gradient(to bottom, rgb(73, 32, 85),rgb(73, 32, 85))',
+        'menu-header': 'linear-gradient( rgb(255, 255, 255),rgb(255, 255, 255))',
+        'menu-body': 'linear-gradient( rgb(237, 241, 245),rgb(237, 241, 245))',
+        
+
+        'menu-option': 'linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255))',
+        'menu-option-active': 'linear-gradient(rgb(255, 255, 255),rgb(255, 235, 247))',
+
+
+        'box-layout': 'linear-gradient(rgb(253, 253, 253),rgb(250, 253, 255))',
+
+        'chart-bg': 'linear-gradient(rgb(253, 253, 253),rgb(253, 253, 253))',
      },
      colors: {
-      'purple-layout': 'rgb(74, 29, 85)',
-      'purple-button': '#5c3372',
-      'purple-button-hover': '#703b8d',
+      'default-txt-color': '#000',
+      'input-placeholder-txt-color': ' rgb(85, 85, 85)',
+      'input-bg-color': 'rgb(209, 215, 223)',
+
+      'menu-option-border': 'rgb(252, 139, 201)',
+
+      'button-bg': 'rgb(221, 94, 125)',
+      'button-txt-color': '#fff',
+      'button-bg-hover': 'rgb(241, 80, 121)',
+
       primary: {
-        light: "rgb(82, 50, 104)",
-      },
-      secondary: {
-        light: "rgb(74, 29, 85)",
+        light: "rgb(15, 41, 95)",
       },
      },
      fontFamily: {
@@ -59,7 +68,7 @@ module.exports = {
           background: "transparent",
         },
         ".scrollbar-light::-webkit-scrollbar-thumb": {
-          background: "rgb(106, 53, 134)",
+          background: "rgb(207, 116, 139)",
           "border-radius": "10px",
         },
       });

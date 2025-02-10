@@ -35,7 +35,7 @@ describe('TableViewComponent', () => {
           { type: 'Cycling', minutes: 80 },
         ],
       },
-    ];
+    ]; 
 
   beforeEach(async () => {
     mockWorkoutApiService = jasmine.createSpyObj('WorkoutApiService', ['userData$']);
