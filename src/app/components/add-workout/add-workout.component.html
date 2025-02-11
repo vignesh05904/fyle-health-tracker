@@ -1,10 +1,27 @@
 <div class="flex flex-col p-4 md:p-8 gap-8 items-center m-4 sm:m-10">
   
-    <form class="w-full max-w-lg flex flex-col p-6 gap-6 items-center bg-box-layout rounded-lg shadow-md " #WorkoutForm="ngForm" (ngSubmit)="add_workout(WorkoutForm)">
+    <form class="w-full max-w-lg flex flex-col p-6 gap-6 items-center bg-box-layout rounded-lg shadow-md border" #WorkoutForm="ngForm" (ngSubmit)="add_workout(WorkoutForm)">
    
       <h2 class="text-2xl font-custom"> Create Workout </h2>
-      <input name="username" class="w-full px-6 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" placeholder="Enter Username" ngModel required/>
-   
+
+      <div class="relative w-full">
+        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" 
+             xmlns="http://www.w3.org/2000/svg" 
+             fill="none" 
+             viewBox="0 0 24 24" 
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M5.121 17.804A9.004 9.004 0 0112 15a9.004 9.004 0 016.879 2.804M12 12a4 4 0 100-8 4 4 0 000 8z" />
+        </svg>
+        
+        <input name="username" 
+               class="w-full px-12 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" 
+               placeholder="Enter Username" 
+               ngModel 
+               required/>
+      </div>
+
+      
       <select 
         name="WorkoutType" [(ngModel)]="addWorkout" id="addWorkout" class="w-full px-6 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" ngModel required>
         <option value="Running">Running</option>

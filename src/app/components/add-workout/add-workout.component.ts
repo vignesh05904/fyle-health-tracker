@@ -23,7 +23,7 @@ export class AddWorkoutComponent {
 
     const username = (data.username || "").trim(); // to remove blank spaces after text, If user input spacebar at last.
 
-    if (!username || !data.WorkoutType || data.workoutMinutes === null) {
+    if (!username || !data.WorkoutType || data.workoutMinutes === null) { // If any input is missing it will trigger an alert.
       Swal.fire({
         icon: 'error',
         title: 'Hold on!',
@@ -42,12 +42,12 @@ export class AddWorkoutComponent {
       return;
     }
 
-    // Username validation 
+    // Validating user input to prevent SQL injection and restrict unknown characters in usernames.
     if (username.length < 3 || !/^[a-zA-Z][a-zA-Z0-9 ]+$/.test(username)) {
       Swal.fire({
         icon: 'error',
         title: 'Invalid Username!',
-        text: 'Username must be at least 3 characters long, start with a letter, and contain only letters, numbers, and spaces.',
+        text: 'Username must be at least 3 characters long, start with a letter, and contain only letters, numbers.',
         background: 'rgb(255, 255, 255)',
         color: 'rgb(68, 24, 50)',
         iconColor: 'rgb(206, 72, 150)',
@@ -57,7 +57,7 @@ export class AddWorkoutComponent {
       return;
     }
 
-     // Workout Minutes Validation
+     // Workout Minutes Validation, Without leading Zeros at starting. like example 0023, this will be converted to 23.
     if (data.workoutMinutes <= 0 || /^0\d+/.test(data.workoutMinutes.toString())) {
       Swal.fire({
         icon: 'error',
