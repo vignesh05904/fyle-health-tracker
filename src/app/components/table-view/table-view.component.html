@@ -1,8 +1,8 @@
 <div class="grid grid-cols-1 px-5 md:px-20 animate-fade-in">
     <div class="flex flex-col md:flex-row justify-between pb-5 gap-3">
-      <input [(ngModel)]="searchName" (input)="filterByNameType()" class="w-full md:w-1/3 px-4 py-3 placeholder-input-placeholder-txt-color bg-input-bg-color font-sans rounded-lg focus:outline-none" placeholder="Search by name"/>
+      <input [(ngModel)]="searchName" (input)="filterByNameType()" class="w-full md:w-1/3 px-4 py-3 placeholder-input-placeholder-txt-color bg-input-bg-color font-sans rounded-lg border border-gray-300 focus:outline-none" placeholder="Search by name"/>
   
-      <select [(ngModel)]="workoutType" (change)="filterByNameType(workoutType)" id="workoutType" class="px-4 py-3 placeholder-input-placeholder-txt-color bg-input-bg-color rounded-lg focus:outline-none">
+      <select [(ngModel)]="workoutType" (change)="filterByNameType(workoutType)" id="workoutType" class="px-4 py-3 placeholder-input-placeholder-txt-color bg-input-bg-color rounded-lg border border-gray-300 focus:outline-none">
         <option value="">All</option>
         <option value="Running">Running</option>
         <option value="Swimming">Swimming</option>
@@ -13,7 +13,7 @@
   
     <div class="rounded-lg shadow-md overflow-x-auto">
       <table class="min-w-full font-sans md:font-custom shadow-lg rounded-lg overflow-hidden">
-        <thead class="bg-table-header rounded-lg">
+        <thead class="bg-table-header rounded-lg border border-gray-300 focus:outline-none">
           <tr class="rounded-lg text-1xl">
             <th class="px-6 py-4 text-left whitespace-nowrap">Name</th>
             <th class="px-6 py-4 text-left whitespace-nowrap">Workouts</th>
@@ -46,14 +46,13 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center text-center animate-fade-in">
     <div class="flex flex-wrap justify-center md:justify-end items-center gap-5 p-4">
       <button class="px-4 py-2 bg-button-bg rounded-md hover:bg-button-bg-hover focus:outline-none disabled:opacity-50 text-button-txt-color" 
-        [disabled]="currentPage === 1 || paginatedUsers.length <= 5" (click)="goToPreviousPage()">Previous</button>
+        [disabled]="currentPage === 1 && paginatedUsers.length <= 5" (click)="goToPreviousPage()">Previous</button>
   
       <div class="flex flex-wrap justify-center items-center space-x-1">
         <div *ngFor="let page of pages">
           <button
             class="px-4 py-2 bg-button-bg-hover rounded-md hover:button-bg-hover" 
             [ngClass]="{'bg-button-bg-hover text-button-txt-color': currentPage === page, 'hover:bg-hover:button-bg': currentPage !== page}"
-            [disabled]="paginatedUsers.length < 5"
             (click)="goToPage(page)">
             {{ page }}
           </button>
@@ -61,7 +60,7 @@
       </div>
   
     <button class="px-4 py-2 bg-button-bg rounded-md focus:outline-none hover:bg-button-bg-hover disabled:opacity-50 text-button-txt-color" 
-        [disabled]="currentPage === totalPages || paginatedUsers.length <= 5" (click)="goToNextPage()">Next</button>
+        [disabled]="currentPage === totalPages && paginatedUsers.length <= 5" (click)="goToNextPage()">Next</button>
     </div>
   
     <div class="flex justify-center md:justify-start items-center gap-2 p-4">

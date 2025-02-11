@@ -17,10 +17,10 @@ module.exports = {
 
         
         'menu-header': 'linear-gradient( rgb(255, 255, 255),rgb(255, 255, 255))',
-        'menu-body': 'linear-gradient( rgb(236, 236, 236),rgb(236, 236, 236))',
+        'menu-body': 'linear-gradient( rgb(248, 248, 248),rgb(248, 248, 248))',
         
 
-        'menu-option': 'linear-gradient(#fff, #fff)',
+        'menu-option': 'linear-gradient( #ffffff, #ffffff)',
         'menu-option-active': 'linear-gradient(to right, rgb(255, 255, 255),rgb(255, 238, 238))',
 
 
