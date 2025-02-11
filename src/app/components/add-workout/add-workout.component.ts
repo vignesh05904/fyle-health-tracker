@@ -21,6 +21,8 @@ export class AddWorkoutComponent {
     const data = WorkoutForm.value;
     const UserData = this.service_api.getWorkoutInfo();
 
+    data.username = data.username.trim(); // to remove blank spaces after text, If user input spacebar at last.
+
     if (!data.username || !data.WorkoutType || data.workoutMinutes === null) {
       Swal.fire({
         icon: 'error',
@@ -41,11 +43,11 @@ export class AddWorkoutComponent {
     }
 
     // Username validation 
-    if (data.username.length < 3 || !/^[a-zA-Z0-9 ]+$/.test(data.username)) {
+    if (data.username.length < 3 || !/^[a-zA-Z][a-zA-Z0-9 ]+$/.test(data.username)) {
       Swal.fire({
         icon: 'error',
         title: 'Invalid Username!',
-        text: 'Username must be at least 3 characters long and contain only letters and numbers.',
+        text: 'Username must be at least 3 characters long, start with a letter, and contain only letters, numbers, and spaces.',
         background: 'rgb(255, 255, 255)',
         color: 'rgb(68, 24, 50)',
         iconColor: 'rgb(206, 72, 150)',

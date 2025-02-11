@@ -43,22 +43,25 @@
     </div>
   </div>
 
-  <div *ngIf="paginatedUsers.length != 0" class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center text-center animate-fade-in">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center text-center animate-fade-in">
     <div class="flex flex-wrap justify-center md:justify-end items-center gap-5 p-4">
       <button class="px-4 py-2 bg-button-bg rounded-md hover:bg-button-bg-hover focus:outline-none disabled:opacity-50 text-button-txt-color" 
-        [disabled]="currentPage === 1" (click)="goToPreviousPage()">Previous</button>
+        [disabled]="currentPage === 1 || paginatedUsers.length <= 5" (click)="goToPreviousPage()">Previous</button>
   
       <div class="flex flex-wrap justify-center items-center space-x-1">
-        <button *ngFor="let page of pages" 
-          class="px-4 py-2 bg-button-bg-hover rounded-md hover:button-bg-hover" 
-          [ngClass]="{'bg-button-bg-hover text-button-txt-color': currentPage === page, 'hover:bg-hover:button-bg': currentPage !== page}" 
-          (click)="goToPage(page)">
-          {{ page }}
-        </button>
+        <div *ngFor="let page of pages">
+          <button
+            class="px-4 py-2 bg-button-bg-hover rounded-md hover:button-bg-hover" 
+            [ngClass]="{'bg-button-bg-hover text-button-txt-color': currentPage === page, 'hover:bg-hover:button-bg': currentPage !== page}"
+            [disabled]="paginatedUsers.length < 5"
+            (click)="goToPage(page)">
+            {{ page }}
+          </button>
+        </div>
       </div>
   
     <button class="px-4 py-2 bg-button-bg rounded-md focus:outline-none hover:bg-button-bg-hover disabled:opacity-50 text-button-txt-color" 
-        [disabled]="currentPage === totalPages" (click)="goToNextPage()">Next</button>
+        [disabled]="currentPage === totalPages || paginatedUsers.length <= 5" (click)="goToNextPage()">Next</button>
     </div>
   
     <div class="flex justify-center md:justify-start items-center gap-2 p-4">

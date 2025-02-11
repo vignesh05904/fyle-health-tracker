@@ -29,6 +29,9 @@ export class TableViewComponent {
 
     const start = (this.currentPage - 1) * this.itemsPerPage;
     this.paginatedUsers = this.userData.slice(start, start + this.itemsPerPage);
+
+    // When updating pagination also ensure that Search and WorkoutType filter is taking place.
+    this.filterByNameType();
   }
 
   goToPreviousPage() {
@@ -53,17 +56,6 @@ export class TableViewComponent {
   onItemsPerPageChange() {
     this.currentPage = 1;
     this.updatePagination();
-  }
-
-  filterByType(workoutType: string){
-    this.paginatedUsers = this.userData
-    .filter(user => {
-      const matchesWorkoutType = this.workoutType ? 
-        user.workouts.some(workout => workout.type === this.workoutType) : true;
-
-      return matchesWorkoutType;
-    })
-    .slice((this.currentPage - 1) * this.itemsPerPage, this.currentPage * this.itemsPerPage);
   }
 
   filterByNameType(workoutType?: string){
