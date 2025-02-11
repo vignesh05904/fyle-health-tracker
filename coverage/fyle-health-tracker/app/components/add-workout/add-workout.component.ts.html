@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/24</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
@@ -174,7 +174,9 @@
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,6 +197,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
@@ -308,15 +312,17 @@ export class AddWorkoutComponent {
     const data = WorkoutForm.value;
     const UserData = this.service_api.getWorkoutInfo();
 &nbsp;
-    if (!data.username || !data.WorkoutType || data.workoutMinutes === null) {
+    const username = (data.username || "").trim(); // to remove blank spaces after text, If user input spacebar at last.
+&nbsp;
+    if (!username || !data.WorkoutType || data.workoutMinutes === null) {
       Swal.fire({
         icon: 'error',
         title: 'Hold on!',
         text: 'Looks like some fields are missing. Complete them to proceed.',
-        background: 'rgb(67, 27, 77)',
-        color: '#E1CFF8',
-        iconColor: 'rgb(117, 14, 103)',
-        confirmButtonColor: '#5c3372',
+        background: 'rgb(255, 255, 255)',
+        color: 'rgb(68, 24, 50)',
+        iconColor: 'rgb(206, 72, 150)',
+        confirmButtonColor: ' rgb(221, 94, 125)',
         confirmButtonText: 'OK',
         customClass: {
           popup: 'custom-swal-popup',
@@ -328,15 +334,15 @@ export class AddWorkoutComponent {
     }
 &nbsp;
     // Username validation 
-    if (data.username.length &lt; 3 || !/^[a-zA-Z0-9 ]+$/.test(data.username)) {
+    if (username.length &lt; 3 || !/^[a-zA-Z][a-zA-Z0-9 ]+$/.test(username)) {
       Swal.fire({
         icon: 'error',
         title: 'Invalid Username!',
-        text: 'Username must be at least 3 characters long and contain only letters and numbers.',
-        background: 'rgb(67, 27, 77)',
-        color: '#E1CFF8',
-        iconColor: 'rgb(117, 14, 103)',
-        confirmButtonColor: '#5c3372',
+        text: 'Username must be at least 3 characters long, start with a letter, and contain only letters, numbers, and spaces.',
+        background: 'rgb(255, 255, 255)',
+        color: 'rgb(68, 24, 50)',
+        iconColor: 'rgb(206, 72, 150)',
+        confirmButtonColor: ' rgb(221, 94, 125)',
         confirmButtonText: 'OK',
       });
       return;
@@ -348,10 +354,10 @@ export class AddWorkoutComponent {
         icon: 'error',
         title: 'Invalid Workout Minutes!',
         text: 'Workout minutes must be a valid number greater than 0, without leading zeros.',
-        background: 'rgb(67, 27, 77)',
-        color: '#E1CFF8',
-        iconColor: 'rgb(117, 14, 103)',
-        confirmButtonColor: '#5c3372',
+        background: 'rgb(255, 255, 255)',
+        color: 'rgb(68, 24, 50)',
+        iconColor: 'rgb(206, 72, 150)',
+        confirmButtonColor: ' rgb(221, 94, 125)',
        confirmButtonText: 'OK',
       });
       return;
@@ -363,7 +369,7 @@ export class AddWorkoutComponent {
 &nbsp;
 &nbsp;
     // Checking if user aldready exists
-    let existingUser = UserData.find(user =&gt; user.name.toLowerCase() === data.username.toLowerCase());
+    let existingUser = UserData.find(user =&gt; user.name.toLowerCase() === username.toLowerCase());
 &nbsp;
     if (existingUser) {
       // Check if the same workout type exists for this user
@@ -384,7 +390,7 @@ export class AddWorkoutComponent {
       // If user does not exist, add a new user with their first workout
       const newUser = {
         id: UserData.length + 1,
-        name: data.username,
+        name: username,
         workouts: [
           { type: data.WorkoutType, minutes: data.workoutMinutes }
         ]
@@ -403,7 +409,7 @@ export class AddWorkoutComponent {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-10T17:49:43.205Z
+                at 2025-02-11T10:27:10.865Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

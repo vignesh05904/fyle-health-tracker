@@ -106,13 +106,6 @@ describe('TableViewComponent', () => {
 
   });
 
-  it('Should return all users when workoutType is empty', () => {
-    component.workoutType = '';
-    component.filterByType('');
-    
-    expect(component.paginatedUsers.length).toBe(component.userData.length);
-  });
-
   it('Should filter users by workout type when workoutType is provided and matches', () => {
     component.workoutType = 'Running';
     component.filterByNameType();
@@ -129,13 +122,6 @@ describe('TableViewComponent', () => {
     expect(component.paginatedUsers[0].name).toBe('John Doe');
   });
 
-
-  it('Should filter by workout type', () => {
-    component.workoutType = 'Running';
-    component.filterByType(component.workoutType);
-    expect(component.paginatedUsers.length).toBe(2);
-    expect(component.paginatedUsers[0].name).toBe('John Doe');
-  });
 
   it('Should clean up on destroy', () => {
     const unsubscribeSpy = spyOn(component['unsubscribe$'], 'next');

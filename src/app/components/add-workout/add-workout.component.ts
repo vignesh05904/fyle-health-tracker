@@ -21,9 +21,9 @@ export class AddWorkoutComponent {
     const data = WorkoutForm.value;
     const UserData = this.service_api.getWorkoutInfo();
 
-    data.username = data.username.trim(); // to remove blank spaces after text, If user input spacebar at last.
+    const username = (data.username || "").trim(); // to remove blank spaces after text, If user input spacebar at last.
 
-    if (!data.username || !data.WorkoutType || data.workoutMinutes === null) {
+    if (!username || !data.WorkoutType || data.workoutMinutes === null) {
       Swal.fire({
         icon: 'error',
         title: 'Hold on!',
@@ -43,7 +43,7 @@ export class AddWorkoutComponent {
     }
 
     // Username validation 
-    if (data.username.length < 3 || !/^[a-zA-Z][a-zA-Z0-9 ]+$/.test(data.username)) {
+    if (username.length < 3 || !/^[a-zA-Z][a-zA-Z0-9 ]+$/.test(username)) {
       Swal.fire({
         icon: 'error',
         title: 'Invalid Username!',
@@ -78,7 +78,7 @@ export class AddWorkoutComponent {
 
 
     // Checking if user aldready exists
-    let existingUser = UserData.find(user => user.name.toLowerCase() === data.username.toLowerCase());
+    let existingUser = UserData.find(user => user.name.toLowerCase() === username.toLowerCase());
 
     if (existingUser) {
       // Check if the same workout type exists for this user
@@ -99,7 +99,7 @@ export class AddWorkoutComponent {
       // If user does not exist, add a new user with their first workout
       const newUser = {
         id: UserData.length + 1,
-        name: data.username,
+        name: username,
         workouts: [
           { type: data.WorkoutType, minutes: data.workoutMinutes }
         ]
