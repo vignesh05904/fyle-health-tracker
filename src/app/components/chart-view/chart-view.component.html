@@ -16,9 +16,9 @@
 
       <div class="bg-menu-body shadow-md w-80 rounded-md">
         <ul class=" mb-10">
-          <li class="pt-3 pb-2 mb-6 font-custom text-lg text-center bg-menu-header rounded-md"> Workout Profiles </li>
+          <li class="pt-3 pb-2 mb-6 font-sans text-lg text-center bg-menu-header rounded-md"> Workout Profiles </li>
 
-          <div class="max-h-60 md:h-80 border-none font-sans font-normal scrollbar-light overflow-y-auto">
+          <div class="max-h-60 md:h-80 border-none font-sans text-lg scrollbar-light overflow-y-auto">
 
           <div *ngIf="FilterByName.length == 0" class="flex border-none justify-center items-center">
           <li class="w-64 m=2 font-custom text-center justify-center items-center"> No such users found </li> 
@@ -31,7 +31,7 @@
             {{ user.name }}
           </li> 
           <li *ngIf="user.name === selectedUser?.name"
-            class="px-4 py-3 font-custom bg-menu-option-active rounded-lg m-2 hover:bg-purple-button-hover transition duration-300 cursor-pointer border-r-4 border-menu-option-border shadow-lg shadow- w-64"
+            class="px-4 py-3 font-custom bg-menu-option-active rounded-lg m-2 hover:bg-purple-button-hover transition duration-300 cursor-pointer border-r-4 border-menu-option-border shadow-sm w-64"
             (click)="onSelectUser(user.id)">
             {{ user.name }}
           </li> 

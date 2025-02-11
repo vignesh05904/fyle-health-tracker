@@ -75,7 +75,7 @@ export class ChartViewComponent implements OnInit{
       this.showLegend = false;
     } else {
       this.chartWidth = 750;
-      this.chartHeight = 450;
+      this.chartHeight = 400;
       this.showLegend = true;
     }
   }

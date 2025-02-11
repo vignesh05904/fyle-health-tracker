@@ -8,32 +8,32 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'layout-background': 'linear-gradient(to left,#e4ecf3,#f5f3f4)',
+        'layout-background': 'linear-gradient(to left,#FAFAFA, #FAFAFA)',
 
         'navbar-layout': 'linear-gradient(#fff,#fff)',
 
-        'table-header': 'linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255))',
-        'table-body': 'linear-gradient( rgb(236, 236, 236), rgb(236, 236, 236))',
+        'table-header': 'linear-gradient(#E3E4E6,#E3E4E6)',
+        'table-body': 'linear-gradient(rgb(250, 250, 250),rgb(250, 250, 250))',
 
         
         'menu-header': 'linear-gradient( rgb(255, 255, 255),rgb(255, 255, 255))',
-        'menu-body': 'linear-gradient( rgb(237, 241, 245),rgb(237, 241, 245))',
+        'menu-body': 'linear-gradient( rgb(236, 236, 236),rgb(236, 236, 236))',
         
 
-        'menu-option': 'linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255))',
-        'menu-option-active': 'linear-gradient(rgb(255, 255, 255),rgb(255, 235, 247))',
+        'menu-option': 'linear-gradient(#fff, #fff)',
+        'menu-option-active': 'linear-gradient(to right, rgb(255, 255, 255),rgb(255, 238, 238))',
 
 
-        'box-layout': 'linear-gradient(rgb(253, 253, 253),rgb(250, 253, 255))',
+        'box-layout': 'linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255))',
 
         'chart-bg': 'linear-gradient(rgb(253, 253, 253),rgb(253, 253, 253))',
      },
      colors: {
       'default-txt-color': '#000',
       'input-placeholder-txt-color': ' rgb(85, 85, 85)',
-      'input-bg-color': 'rgb(209, 215, 223)',
+      'input-bg-color': 'rgb(241, 241, 241)',
 
-      'menu-option-border': 'rgb(252, 139, 201)',
+      'menu-option-border': 'rgb(221, 94, 125)',
 
       'button-bg': 'rgb(221, 94, 125)',
       'button-txt-color': '#fff',
