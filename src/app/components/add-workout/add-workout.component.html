@@ -1,37 +1,60 @@
-<div class="flex flex-col p-4 md:p-8 gap-8 items-center m-4 sm:m-10">
+<div class="flex flex-col p-4 md:p-8 gap-8 items-center m-4 sm:m-10 animate-fade-in">
   
     <form class="w-full max-w-lg flex flex-col p-6 gap-6 items-center bg-box-layout rounded-lg shadow-md border" #WorkoutForm="ngForm" (ngSubmit)="add_workout(WorkoutForm)">
    
-      <h2 class="text-2xl font-custom"> Create Workout </h2>
+      <h2 class="text-2xl font-sans font-bold"> Create Workout </h2>
 
       <div class="relative w-full">
-        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" 
-             xmlns="http://www.w3.org/2000/svg" 
-             fill="none" 
-             viewBox="0 0 24 24" 
-             stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M5.121 17.804A9.004 9.004 0 0112 15a9.004 9.004 0 016.879 2.804M12 12a4 4 0 100-8 4 4 0 000 8z" />
-        </svg>
-        
+        <i class="fa-solid fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
         <input name="username" 
-               class="w-full px-12 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" 
-               placeholder="Enter Username" 
-               ngModel 
-               required/>
+               class="w-full px-12 py-3 placeholder-input-placeholder-txt-color text-default-txt-color bg-input-bg-color rounded-lg border border-gray-300 focus:outline-none" 
+               placeholder="Enter Username" ngModel required/>
       </div>
-
       
-      <select 
-        name="WorkoutType" [(ngModel)]="addWorkout" id="addWorkout" class="w-full px-6 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" ngModel required>
-        <option value="Running">Running</option>
-        <option value="Swimming">Swimming</option>
-        <option value="Yoga">Yoga</option>
-        <option value="Cycling">Cycling</option>
-      </select>
+      <!-- Begin: Customized Workout Selection -->
+      <div class="relative w-full">
+        <div class="w-full px-4 py-3 flex items-center justify-between bg-input-bg-color border border-gray-300 rounded-lg cursor-pointer" (click)="toggleDropdown()">
+          <div class="flex items-center space-x-2">
+            <fa-icon [icon]="faDumbbell" class="text-gray-400"></fa-icon>
+            <span class="text-default-txt-color">{{ selectedOption || 'Select Workout' }}</span>
+          </div>
+          <fa-icon [icon]="faChevronDown" class="text-gray-400"></fa-icon>
+        </div>
+
+        <div class="absolute w-full mt-1 bg-input-bg-color border border-gray-300 rounded-lg shadow-lg z-10" *ngIf="isDropdownOpen">
+
+          <div class="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 cursor-pointer mt-2" (click)="selectOption('Running')">
+            <fa-icon [icon]="faRunning" class="text-blue-500"></fa-icon>
+            <span class="text-default-txt-color">Running</span>
+          </div>
+      
+          <div class="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 cursor-pointer" (click)="selectOption('Swimming')">
+            <fa-icon [icon]="faSwimmer" class="text-blue-500"></fa-icon>
+            <span class="text-default-txt-color">Swimming</span>
+          </div>
+      
+          <div class="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 cursor-pointer" (click)="selectOption('Yoga')">
+            <fa-icon [icon]="faSpa" class="text-purple-500"></fa-icon>
+            <span class="text-default-txt-color">Yoga</span>
+          </div>
+
+          <div class="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 cursor-pointer mb-2" (click)="selectOption('Cycling')">
+            <fa-icon [icon]="faBicycle" class="text-green-500"></fa-icon>
+            <span class="text-default-txt-color">Cycling</span>
+          </div>
+        </div>
+      </div> <!-- End: Customized Workout Selection -->
    
-      <input name="workoutMinutes" type="number" class="w-full px-6 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" placeholder="Enter Workout Minutes" ngModel required />
-   
-      <button type="submit" class="px-4 py-2 bg-button-bg rounded-md hover:bg-button-bg-hover focus:outline-none text-button-txt-color"> Add Workout </button>
+
+      <div class="relative w-full">
+        <i class="fa-regular fa-clock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+      
+        <input 
+          name="workoutMinutes" type="number" 
+          class="w-full px-12 py-3 placeholder-input-placeholder-txt-color text-default-txt-color rounded-lg bg-input-bg-color border border-gray-300 focus:outline-none" 
+          placeholder="Enter Workout Minutes" ngModel required />
+      </div>
+         
+      <button type="submit" class="px-4 py-2 bg-button-bg rounded-2xl hover:bg-button-bg-hover focus:outline-none text-button-txt-color"> Add Workout </button>
     </form>
 </div>

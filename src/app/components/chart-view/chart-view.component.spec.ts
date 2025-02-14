@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('ChartViewComponent', () => {
   let component: ChartViewComponent;
@@ -22,7 +23,7 @@ describe('ChartViewComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ChartViewComponent],
-      imports: [NgxChartsModule, FormsModule],
+      imports: [NgxChartsModule, FormsModule, FontAwesomeModule],
       providers: [
         { provide: WorkoutApiService, useValue: mockWorkoutApiService },
         provideNoopAnimations()

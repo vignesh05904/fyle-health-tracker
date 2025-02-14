@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>39/39</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
@@ -176,8 +176,29 @@
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
 <a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,12 +212,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
@@ -293,8 +337,7 @@
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { WorkoutApiService } from '../../services/workout-api.service';
-import { AppComponent } from '../../app.component';
-import { Subject } from 'rxjs';
+import { faDumbbell, faRunning, faSwimmer, faSpa, faBicycle, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 &nbsp;
 @Component({
   selector: 'app-add-workout',
@@ -308,13 +351,36 @@ export class AddWorkoutComponent {
 &nbsp;
   constructor(private service_api: WorkoutApiService){}
 &nbsp;
+  // Font Awesome icons
+  faDumbbell = faDumbbell;
+  faRunning = faRunning;
+  faSwimmer = faSwimmer;
+  faSpa = faSpa;
+  faBicycle = faBicycle;
+  faChevronDown = faChevronDown;
+&nbsp;
+  isDropdownOpen = false;
+  selectedOption: string | null = null;
+&nbsp;
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+&nbsp;
+  selectOption(option: string) {
+    this.selectedOption = option;
+    this.isDropdownOpen = false;
+  }
+&nbsp;
+&nbsp;
   add_workout(WorkoutForm: NgForm){
     const data = WorkoutForm.value;
     const UserData = this.service_api.getWorkoutInfo();
 &nbsp;
+    data.WorkoutType = this.selectedOption || data.WorkoutType;
+&nbsp;
     const username = (data.username || "").trim(); // to remove blank spaces after text, If user input spacebar at last.
 &nbsp;
-    if (!username || !data.WorkoutType || data.workoutMinutes === null) {
+    if (!username || !data.WorkoutType || data.workoutMinutes === null) { // If any input is missing it will trigger an alert.
       Swal.fire({
         icon: 'error',
         title: 'Hold on!',
@@ -333,12 +399,12 @@ export class AddWorkoutComponent {
       return;
     }
 &nbsp;
-    // Username validation 
+    // Validating user input to prevent SQL injection and restrict unknown characters in usernames.
     if (username.length &lt; 3 || !/^[a-zA-Z][a-zA-Z0-9 ]+$/.test(username)) {
       Swal.fire({
         icon: 'error',
         title: 'Invalid Username!',
-        text: 'Username must be at least 3 characters long, start with a letter, and contain only letters, numbers, and spaces.',
+        text: 'Username must be at least 3 characters long, start with a letter, and contain only letters, numbers.',
         background: 'rgb(255, 255, 255)',
         color: 'rgb(68, 24, 50)',
         iconColor: 'rgb(206, 72, 150)',
@@ -348,7 +414,7 @@ export class AddWorkoutComponent {
       return;
     }
 &nbsp;
-     // Workout Minutes Validation
+     // Workout Minutes Validation, Without leading Zeros at starting. like example 0023, this will be converted to 23.
     if (data.workoutMinutes &lt;= 0 || /^0\d+/.test(data.workoutMinutes.toString())) {
       Swal.fire({
         icon: 'error',
@@ -409,7 +475,7 @@ export class AddWorkoutComponent {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-11T10:27:10.865Z
+                at 2025-02-11T20:52:03.447Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

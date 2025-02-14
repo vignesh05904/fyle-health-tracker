@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './../models/interfaces';
+import { User } from '../models/workout-interfaces';
 import Swal from 'sweetalert2';
 import { BehaviorSubject } from 'rxjs';
 

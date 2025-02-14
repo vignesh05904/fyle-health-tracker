@@ -10,6 +10,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TableViewComponent } from './components/table-view/table-view.component';
 import { ChartViewComponent } from './components/chart-view/chart-view.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     TableViewComponent,
     ChartViewComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    FontAwesomeModule
   ],
   providers: [
     provideAnimationsAsync(),

@@ -2,8 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { WorkoutApiService } from '../../services/workout-api.service';
-import { AppComponent } from '../../app.component';
-import { Subject } from 'rxjs';
+import { faDumbbell, faRunning, faSwimmer, faSpa, faBicycle, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-workout',
@@ -17,9 +16,32 @@ export class AddWorkoutComponent {
 
   constructor(private service_api: WorkoutApiService){}
 
+  // Font Awesome icons
+  faDumbbell = faDumbbell;
+  faRunning = faRunning;
+  faSwimmer = faSwimmer;
+  faSpa = faSpa;
+  faBicycle = faBicycle;
+  faChevronDown = faChevronDown;
+
+  isDropdownOpen = false;
+  selectedOption: string | null = null;
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  selectOption(option: string) {
+    this.selectedOption = option;
+    this.isDropdownOpen = false;
+  }
+
+
   add_workout(WorkoutForm: NgForm){
     const data = WorkoutForm.value;
     const UserData = this.service_api.getWorkoutInfo();
+
+    data.WorkoutType = this.selectedOption || data.WorkoutType;
 
     const username = (data.username || "").trim(); // to remove blank spaces after text, If user input spacebar at last.
 

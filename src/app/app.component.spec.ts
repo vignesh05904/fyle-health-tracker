@@ -8,6 +8,8 @@ import { TableViewComponent } from './components/table-view/table-view.component
 import { ChartViewComponent } from './components/chart-view/chart-view.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './components/footer/footer.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -15,8 +17,8 @@ describe('AppComponent', () => {
   beforeEach(async () => {
 
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, NavbarComponent, AddWorkoutComponent, TableViewComponent, ChartViewComponent],
-      imports: [FormsModule,RouterTestingModule,NgxChartsModule], 
+      declarations: [AppComponent, NavbarComponent, AddWorkoutComponent, TableViewComponent, ChartViewComponent, FooterComponent],
+      imports: [FormsModule,RouterTestingModule,NgxChartsModule,FontAwesomeModule], 
       providers: [provideNoopAnimations()],
     }).compileComponents();
 

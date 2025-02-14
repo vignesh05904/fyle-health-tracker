@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { WorkoutApiService } from './workout-api.service';
-import { User } from './../models/interfaces';
+import { User } from '../models/workout-interfaces';
 import Swal from 'sweetalert2';
 
 describe('WorkoutApiService', () => {

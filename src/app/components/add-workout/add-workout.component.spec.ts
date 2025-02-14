@@ -4,6 +4,7 @@ import { AddWorkoutComponent } from './add-workout.component';
 import { WorkoutApiService } from '../../services/workout-api.service';
 import { of } from 'rxjs';
 import Swal from 'sweetalert2';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('AddWorkoutComponent', () => {
   let component: AddWorkoutComponent;
@@ -15,7 +16,7 @@ describe('AddWorkoutComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [AddWorkoutComponent],
-      imports: [FormsModule],
+      imports: [FormsModule, FontAwesomeModule],
       providers: [{ provide: WorkoutApiService, useValue: spy }]
     }).compileComponents();
 
@@ -41,11 +42,12 @@ describe('AddWorkoutComponent', () => {
   it('should show error for invalid username', () => {
     spyOn(Swal, 'fire');
     const invalidForm = {
-      value: { username: 'J!', WorkoutType: 'Running', workoutMinutes: 30 },
+      value: { username: 'J!$78^', WorkoutType: 'Running', workoutMinutes: 30 },
       reset: () => {}
     } as any;
 
     component.add_workout(invalidForm);
+
     expect(Swal.fire).toHaveBeenCalledWith(jasmine.objectContaining({ title: 'Invalid Username!' }));
   });
 
@@ -102,4 +104,24 @@ describe('AddWorkoutComponent', () => {
     expect(workoutServiceSpy.saveWorkoutInfo).toHaveBeenCalled();
     expect(mockData[0].workouts.length).toBe(2);
   });
+
+  it('Should toggle the custom workout select options', () => {
+    // Simulating an toggle
+    component.toggleDropdown();
+    expect(component.isDropdownOpen).toBe(true);
+
+    // Simulating another toggle
+    component.toggleDropdown();
+    expect(component.isDropdownOpen).toBe(false);
+  });
+
+  it('After selecting an option from workout options.', () => {
+    // Simulating the Select Option as Running
+    component.selectOption('Running');
+
+    // The selectedOption should be Running and isDropdownOpen should be false
+    expect(component.selectedOption).toBe('Running');
+    expect(component.isDropdownOpen).toBe(false);
+  });
+
 });

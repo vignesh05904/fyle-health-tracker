@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'layout-background': 'linear-gradient(to left,#FAFAFA, #FAFAFA)',
+        'layout-background': 'linear-gradient(to right,rgb(252, 239, 248),rgb(236, 245, 255))',
 
         'navbar-layout': 'linear-gradient(#fff,#fff)',
 
@@ -18,7 +18,6 @@ module.exports = {
         
         'menu-header': 'linear-gradient( rgb(255, 255, 255),rgb(255, 255, 255))',
         'menu-body': 'linear-gradient( rgb(248, 248, 248),rgb(248, 248, 248))',
-        
 
         'menu-option': 'linear-gradient( #ffffff, #ffffff)',
         'menu-option-active': 'linear-gradient(to right, rgb(255, 255, 255),rgb(255, 238, 238))',
@@ -26,17 +25,31 @@ module.exports = {
 
         'box-layout': 'linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255))',
 
-        'chart-bg': 'linear-gradient(rgb(253, 253, 253),rgb(253, 253, 253))',
+        'chart-bg': 'linear-gradient(rgb(250, 250, 250),rgb(250, 250, 250))',
+
+        'custom-test': 'linear-gradient(rgb(255, 255, 255),rgb(255, 144, 172))',
      },
+     fontSize: {
+      '10px': '10px',
+      '14px': '14px',
+      '15px': '15px',
+      '16px': '16px',
+      '18px': '18px',
+      '20px': '20px',
+      '24px': '24px',
+      '26px': '26px',
+      '28px': '28px',
+      '30px': '30px',
+    },
      colors: {
       'default-txt-color': '#000',
       'input-placeholder-txt-color': ' rgb(85, 85, 85)',
       'input-bg-color': 'rgb(241, 241, 241)',
 
-      'menu-option-border': 'rgb(221, 94, 125)',
+      'menu-option-border': 'rgb(206, 153, 166)',
 
       'button-bg': 'rgb(221, 94, 125)',
-      'button-txt-color': '#fff',
+      'button-txt-color': 'rgb(255, 255, 255)',
       'button-bg-hover': 'rgb(241, 80, 121)',
 
       primary: {
@@ -70,7 +83,7 @@ module.exports = {
           background: "transparent",
         },
         ".scrollbar-light::-webkit-scrollbar-thumb": {
-          background: "rgb(207, 116, 139)",
+          background: "rgb(201, 100, 125)",
           "border-radius": "10px",
         },
       });

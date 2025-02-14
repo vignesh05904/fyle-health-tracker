@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { WorkoutApiService } from '../../services/workout-api.service';
-import { User } from '../../models/interfaces';
+import { User } from '../../models/workout-interfaces';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { Subject } from 'rxjs';
 
@@ -35,7 +35,7 @@ export class ChartViewComponent implements OnInit{
     name: 'custom',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['rgb(194, 114, 134)', 'rgb(184, 75, 102)', 'rgb(221, 94, 125)']
+    domain: ['rgb(231, 82, 119)', 'rgb(235, 97, 132)', 'rgb(235, 97, 132)']
   };
 
   onSelectUser(event?: any) {
